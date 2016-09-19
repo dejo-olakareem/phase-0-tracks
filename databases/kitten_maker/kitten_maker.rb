@@ -36,6 +36,9 @@ end
   create_kitten(db, Faker::Name.name, 0)
 end
 
+wale just doing things
+
+
 # explore ORM by retrieving data
 # kittens = db.execute("SELECT * FROM kittens")
 # kittens.each do |kitten|
