@@ -15,3 +15,4 @@ message authur
 timestamp
 *The merge conflicts occur when there are disagreeing changes.
 *branch gives you a copy to work on
+**tagging a teacher**
