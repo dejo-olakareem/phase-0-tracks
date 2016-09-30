@@ -5,6 +5,10 @@ body{
 main{
   max-width: 756px;
   display: inline-block;
+<<<<<<< HEAD
+=======
+  min-width: 460px;
+>>>>>>> feature-branch
 }
 
 blockquote {
@@ -20,6 +24,7 @@ cite {
 
 #external-links {
   width: 200px;
+
   display: inline-block;
   vertical-align: top;
 }
@@ -46,4 +51,28 @@ figcaption {
   font-style: italic;
   text-align: right;
 }
+
+@media screen and (max-width: 370px) {
+  img {
+    max-width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media screen and (max-width: 500px) {
+  body {
+    text-align: center;
+    /*margin: 0 auto;*/
+}
+
+
+@media screen and (max-width: 370px) {
+  p, blockquote,h1,figcaption {
+    font-size: .14em;
+    max-width: 45%
+}
+
+
+
 
