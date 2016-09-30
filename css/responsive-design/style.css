@@ -5,10 +5,8 @@ body{
 main{
   max-width: 756px;
   display: inline-block;
-<<<<<<< HEAD
-=======
   min-width: 460px;
->>>>>>> feature-branch
+
 }
 
 blockquote {
@@ -24,7 +22,6 @@ cite {
 
 #external-links {
   width: 200px;
-
   display: inline-block;
   vertical-align: top;
 }
