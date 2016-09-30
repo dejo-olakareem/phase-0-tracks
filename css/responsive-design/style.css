@@ -3,8 +3,9 @@ body{
 }
 
 main{
-  max-width: 756px;
+  max-width: 70%;
   display: inline-block;
+  min-width: 460px;
 }
 
 blockquote {
@@ -19,7 +20,7 @@ cite {
 }
 
 #external-links {
-  width: 200px;
+  width: 20%;
   display: inline-block;
   vertical-align: top;
 }
@@ -47,3 +48,4 @@ figcaption {
   text-align: right;
 }
 
+2
