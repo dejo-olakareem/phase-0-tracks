@@ -1,0 +1,18 @@
+#For Every floor you are in the builing
+**stay put in front of elevator**
+**Ask for Direction**
+**If the direction  is Up or Down**
+**Enter Elevator**
+**Ask for floor number**
+**Wait till you get to the floor number**
+**Exit at floor number**
+
+
+#Taking train to work
+**Wait till its 7:45am**
+**Drive to bart Immediately 1 seconds pass 7:45**
+**If Going to Daly city San Francisco**
+**Navigate towards daly city train platform**
+**Scan bart card at train Entrance**
+**Wait for train to arrive**
+**Board train**
