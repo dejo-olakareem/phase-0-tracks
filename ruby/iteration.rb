@@ -106,7 +106,7 @@ p team_stadium.delete_if {|team,stadium| stadium.length > 5}
    p sf_team
    p sf_team.keep_if {|team| team[1].downcase =="i"}
 
-   
+
 # # #3 - for hashes
 
   p team_stadium  
@@ -117,7 +117,8 @@ p team_stadium.delete_if {|team,stadium| stadium.length > 5}
  p sf_team
   p sf_team.take_while {|team| team.length <7}
 #4 - for hashes
-
+p team_stadium
+p team_stadium.take_while{|team,stadium|team.to_s.include?("i")||stadium.include?("r")}
 
 
 
