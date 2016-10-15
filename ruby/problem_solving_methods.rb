@@ -6,7 +6,7 @@ no = gets.chomp.to_i
 
 def search_array (arr, no)
 answer = arr.each_index.select{|x| no == arr[x]}
-puts answer
+answer.first
 end
 
 p search_array(arr, no)
