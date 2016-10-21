@@ -1,19 +1,19 @@
-SPECIES  ------------------
-Humanus Friendlius
+# SPECIES  ------------------
+# Humanus Friendlius
 
 
 
-CHARACTERISTICS ---------------
-Color : varies
-Legs : four
-eye count : two forward
-teeth : canivourous
-Name : varies
+# CHARACTERISTICS ---------------
+# Color : varies
+# Legs : four
+# eye count : two forward
+# teeth : canivourous
+# Name : varies
 
 
 
-BEHAVIOR ------------
-bark
-rollover
-attack
-sit
+# BEHAVIOR ------------
+# bark
+# rollover
+# attack
+# sit
