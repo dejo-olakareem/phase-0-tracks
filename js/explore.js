@@ -19,5 +19,9 @@ function reverse(str){
 }
 
 var whisky = reverse("drake")
-
 console.log(whisky)
+
+
+if (5 > 4){
+	console.log(whisky)
+}
