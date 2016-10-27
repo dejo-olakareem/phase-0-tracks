@@ -18,5 +18,6 @@ function reverse(str){
 	return (fav);
 }
 
-reverse("hello")
+var whisky = reverse("drake")
 
+console.log(whisky)
