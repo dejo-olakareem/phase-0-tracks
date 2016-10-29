@@ -11,6 +11,7 @@
 require_relative 'state_data'
 
 class VirusPredictor
+ 
 
 # Initialize method makes variable assessible inside the class, sets variable inside the methods
 
@@ -24,29 +25,29 @@ class VirusPredictor
   
 
   def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    predicted_deaths
+    speed_of_spread
   end
 
   private
 
   #This method requires population_density, population, and sate and it then predicts deaths. Based on the population_density is how you get the number of deaths wich is = @population * an integer and then it prints th e state and number of deaths
 
-  def predicted_deaths(population_density, population, state)
+  def predicted_deaths
     # predicted deaths is solely based on population density
     if @population_density >= 200
-      number_of_deaths = (@population * 0.4).floor
+      number_of_deaths = (@population * 0.4)
     elsif @population_density >= 150
-      number_of_deaths = (@population * 0.3).floor
+      number_of_deaths = (@population * 0.3)
     elsif @population_density >= 100
-      number_of_deaths = (@population * 0.2).floor
+      number_of_deaths = (@population * 0.2)
     elsif @population_density >= 50
-      number_of_deaths = (@population * 0.1).floor
+      number_of_deaths = (@population * 0.1)
     else
-      number_of_deaths = (@population * 0.05).floor
+      number_of_deaths = (@population * 0.05)
     end
 
-    print "#{@state} will lose #{number_of_deaths} people in this outbreak"
+    print "#{@state} will lose #{number_of_deaths.floor} people in this outbreak"
 
   end
 
@@ -59,14 +60,14 @@ class VirusPredictor
     #closing edge case (if any)
   #end
   
-  .1 * pop_density/50
+  # .1 * pop_density/50
   
   
   #This method takes in population_density and state as parimetrs and calcuates the rate od spread. It prints hows fast it will spread.
 
 
   
-  def speed_of_spread(population_density, state) #in months
+  def speed_of_spread #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
