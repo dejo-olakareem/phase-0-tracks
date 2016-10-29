@@ -116,3 +116,9 @@ end
 
 #=======================================================================
 # Reflection Section
+# The STATE_DATA syntax makes the data unchangeable because it's a constant
+# Require relative makes data from the same folder accessible, require full path is needed
+# You can iterate through a hash using .each or .map
+# The parameter values were not being used so were uneccessary
+# .floor was included in each if else statement when it could be assigned at the end when the value was printed
+# Refactoring!
