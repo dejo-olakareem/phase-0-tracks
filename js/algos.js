@@ -83,4 +83,5 @@ function array_builder(integer) {
 
 var wal = array_builder(10);
 console.log(wal)
+console.log(take_in_array(wal));
  
