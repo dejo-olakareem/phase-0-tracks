@@ -46,4 +46,42 @@ drakula = {name: "Tamir", age: 54}
 
 // object_comparism(blake,drakula)
 object_comparism(obj1,obj2)
+
+
+function get_random_letter() {
+	var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+	var alphabet1 = alphabet.join("");
+	var value = Math.random() * (25 - 0) + 0; 
+	var random_value = Math.round(value); 
+	var random_letter = alphabet1[random_value]; 
+	return random_letter;
+}
+
+
+
+function random_string_builder() {
+	var random_string = "";
+	var length_value = Math.random() * (10 - 1) + 1; 
+	length_value = Math.round(length_value);
+	for (var i = 0; i < length_value; i++){
+		 random_string += get_random_letter();
+	}
+
+	return random_string;
+}
+
+function array_builder(integer) {
+	var arr = [];
+		for(var i = 0; i < integer; i++){
+			arr.push(random_string_builder());
+			
+			
+		}
+		return arr 
+}
+
+
+var wal = array_builder(10);
+console.log(wal)
+console.log(take_in_array(wal));
  
