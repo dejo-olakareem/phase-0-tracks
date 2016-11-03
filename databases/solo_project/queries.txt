@@ -1,0 +1,45 @@
+
+Display the information in one table (either table is fine).
+
+sqlite> select * from founders
+   ...> ;
+1|Mark Zuckerberg|12691|20040204|1
+2|Larry Page|57100|19980904|3
+3|Sergey Brin|57100|19980904|3
+4|Kevin Systrom|13|20100101|2
+5|Mike Krueger|13|20100101|2
+
+
+Update an item that meets some condition (you can choose a condition that makes sense).
+
+sqlite> UPDATE founders SET name="wale olakareem" WHERE name="Mike Krueger";
+sqlite> select * from founders
+   ...> ;
+1|Mark Zuckerberg|12691|20040204|1
+2|Larry Page|57100|19980904|3
+3|Sergey Brin|57100|19980904|3
+4|Kevin Systrom|13|20100101|2
+5|wale olakareem|13|20100101|2
+
+Display the information in both tables using one query.
+sqlite> SELECT * FROM founders, company WHERE founders.company_id = company.id;
+1|Mark Zuckerberg|12691|20040204|1|1|Facebook|false
+2|Larry Page|57100|19980904|3|3|Google|false
+3|Sergey Brin|57100|19980904|3|3|Google|false
+4|Kevin Systrom|13|20100101|2|2|Instagram|true
+5|wale olakareem|13|20100101|2|2|Instagram|true
+
+
+Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+
+sqlite> SELECT founders.name, company.name FROM founders JOIN company ON founders.company_id = company.id;
+Mark Zuckerberg|Facebook
+Larry Page|Google
+Sergey Brin|Google
+Kevin Systrom|Instagram
+wale olakareem|Instagram
+
+
+
+
