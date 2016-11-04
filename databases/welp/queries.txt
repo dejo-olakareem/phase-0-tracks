@@ -1,0 +1,30 @@
+
+In the welp directory, create a file called queries.txt. Once you've figured out the queries below, paste them into queries.txt, along with the output from your database.
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+~ You've joined two tables before. How do you join three?
+
+select * from reviews join users on reviews.users_id=users.id join business on reviews.business_id=business.id;
+1|3|Average|7|1|1|Bradford|Pitt|7|JoeBob's Sportz Barn
+2|4|Good|7|4|4|Steven|Wonder|7|JoeBob's Sportz Barn
+3|5|Great|6|1|1|Bradford|Pitt|6|Sushi World
+4|1|Poor|1|3|3|Angela|Jolie|1|Grundy Hollow Wedding Chapel
+
+
+~ There are some repetitive columns if we choose to view all fields. Choose instead to just view the user's names, the business name, the star rating, and the comment.
+
+select reviews.stars,reviews.comment,users.last_name,users.first_name,business.name from reviews join users on reviews.users_id=users.id join business on reviews.business_id=business.id;
+3|Average|Pitt|Bradford|JoeBob's Sportz Barn
+4|Good|Wonder|Steven|JoeBob's Sportz Barn
+5|Great|Pitt|Bradford|Sushi World
+1|Poor|Jolie|Angela|Grundy Hollow Wedding Chapel
+
+
+~ How do you view the data of all three tables for just one particular business? 
+
+sqlite> select reviews.stars,reviews.comment,users.last_name,users.first_name,business.name from reviews join users on reviews.users_id=users.id join business on reviews.business_id=business.id where business.name = "Sushi World";
+5|Great|Pitt|Bradford|Sushi World
+
+
