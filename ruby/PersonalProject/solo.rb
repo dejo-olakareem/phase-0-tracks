@@ -4,6 +4,7 @@ require "sqlite3"
 
 
 # Create A Data base that will collect user information
+SQLite3::Database.new ("retail.db")
 
 
 
