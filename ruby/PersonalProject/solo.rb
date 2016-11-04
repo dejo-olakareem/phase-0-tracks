@@ -30,7 +30,12 @@ end
 
 p name = name1.join(" ")
 
+puts "What is your email"
 
+p email = gets.chomp
+
+puts "choice of user name"
+p user_name = gets.chomp
 
 
 
