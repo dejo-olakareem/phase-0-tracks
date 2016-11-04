@@ -18,6 +18,19 @@ SQL
 
 db.execute(create_table_cmd)
 # Ask for user Information
+puts "Welcome to Wally's Super store"
+puts "We will like to gather your Info for Purchase"
+puts "What is your full name?,First name Last name"
+
+name1 = gets.chomp.split(" ")
+
+name1.map! do|i|
+ i.capitalize
+end
+
+p name = name1.join(" ")
+
+
 
 
 
