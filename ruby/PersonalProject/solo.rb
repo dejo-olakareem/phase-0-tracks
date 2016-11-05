@@ -32,6 +32,12 @@ def all_info_dab(db)
 	 		end
 end
 
+def specific_user(db,name)
+	username = db.execute("SELECT users.name FROM users").first
+	db.execute("SELECT * from users where name = '#{name}' ") do |row|
+		puts "This is your  name #{row['name']} and your email is #{row['email']} the username you generated was #{row['user_name']}."
+	end
+end
 
 # Ask for user Information
 # USER INTERFACE
@@ -58,13 +64,18 @@ user_name = gets.chomp
 
 
 create_user(db,name,email,user_name)
-
-
-
-username = db.execute("SELECT users.name FROM users").first
-db.execute("SELECT * from users where name = '#{name}' ") do |row|
-	puts "This is your  name #{row['name']} and your email is #{row['email']} the username you generated was #{row['user_name']}."
+specific_user(db,name)
+puts " Is this correct Y/N"
+spec_ans = gets.chomp.upcase
+if spec_ans =="Y"
+	p "Thanks for your registration"
+	elsif spec_ans == "N"
+ 	 p "Which will you like to change? name,email or username"
+else puts "I do not understand you!!!"
 end
+
+
+
 
 
 
