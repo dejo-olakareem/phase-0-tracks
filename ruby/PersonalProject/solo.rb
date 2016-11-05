@@ -18,40 +18,57 @@ CREATE TABLE IF NOT EXISTS users(
 SQL
 
 db.execute(create_table_cmd)
+
+# LOGIC
+def create_user(db,name, email,user_name)
+  db.execute("INSERT INTO users (name, email,user_name) VALUES (?, ?, ?)", [name, email,user_name])
+end
+
+def all_info_dab(db)	
+	 ans = db.execute("SELECT * FROM users")
+
+	 ans.each do |user|
+	 			puts "#{user['name']} wants this#{user['user_name']} as user name."
+	 		end
+end
+
+
 # Ask for user Information
-# puts "Welcome to Wally's Super store"
-# puts "We will like to gather your Info for Purchase"
-# puts "What is your full name?,First name Last name"
+# USER INTERFACE
+puts "Welcome to Wally's Super store"
+puts "We will like to gather your Info for Purchase"
+puts "What is your full name?,First name Last name"
 
-# name1 = gets.chomp.split(" ")
+name1 = gets.chomp.split(" ")
 
-# name1.map! do|i|
-#  i.capitalize
-# end
+name1.map! do|i|
+ i.capitalize
+end
 
-# p name = name1.join(" ")
+name = name1.join(" ")
 
-# puts "What is your email"
+puts "What is your email"
 
-# p email = gets.chomp
+email = gets.chomp
 
-# puts "choice of user name"
-# p user_name = gets.chomp
+puts "choice of user name"
+user_name = gets.chomp
 
-# name = "wale"
-# email ="wale@123.com"
-# user_name = "foeverme1"
 
- db.execute("INSERT INTO users (name, email,user_name) VALUES ('wale','wale@123.com','forever1')")
 
- p db.execute("SELECT * FROM users")
-# def create_kitten(db,name, email,user_name)
-#   db.execute("INSERT INTO users (name, age,user_name) VALUES (?, ?, ?)", [name, email,user_name])
-# end
 
-# create_kitten(users,"wale","wale@123.com","foeverme1")
+create_user(db,name,email,user_name)
 
-# p db.execute("SELECT * FROM users")
+
+
+username = db.execute("SELECT users.name FROM users").first
+db.execute("SELECT * from users where name = '#{name}' ") do |row|
+	puts "This is your  name #{row['name']} and your email is #{row['email']} the username you generated was #{row['user_name']}."
+end
+
+
+
+
 # Insert user Information Into Database
 
 
