@@ -52,6 +52,37 @@ def updateusername(db,updateduser_name,idprovided)
 	db.execute("UPDATE users SET user_name = '#{updateduser_name}' where id= '#{idprovided}' ")
 end
 
+def del_acct(db,userid)
+	db.execute("DELETE FROM users WHERE id =  #{userid}")
+end
+
+
+def update(db,userid)
+	# specific_user(db,userid)
+	puts "what is your id?"
+		idprovided = gets.chomp.to_i
+	p "Which will you like to change? name,email or username"
+	veri_ans = gets.chomp
+	if veri_ans == "name"
+ 		puts "What will you like to update it to"
+ 		name1 = gets.chomp.split(" ")
+		name1.map! do|i|
+		 i.capitalize
+		end
+		updatedname = name1.join(" ")
+		updatename(db,updatedname,idprovided)
+ 	elsif veri_ans == "email" 
+ 		puts "What email will you like to update to"
+ 		updatedemail = gets.chomp
+ 		updateemail(db,updatedemail,idprovided)
+ 	elsif veri_ans == "username"
+ 		puts "What will be your user name"
+ 		updateuser_name = gets.chomp
+ 		updateusername(db,updateuser_name,idprovided)
+end
+	
+end
+
 
 def new_member(db,userid)
 	valid_input = false
@@ -61,34 +92,20 @@ def new_member(db,userid)
 		spec_ans = gets.chomp.upcase
 		if spec_ans =="Y"
 			valid_input = true
-			p "Thanks for your registration"
+			puts "Thanks for your registration"
 			elsif spec_ans == "N"
-				puts "what is your id?"
-					idprovided = gets.chomp.to_i
-		 	 	p "Which will you like to change? name,email or username"
-		 	 	veri_ans = gets.chomp
-			 	if veri_ans == "name"
-			 	 		puts "What will you like to update it to"
-			 	 		name1 = gets.chomp.split(" ")
-							name1.map! do|i|
-							 i.capitalize
-							end
-						updatedname = name1.join(" ")
-						updatename(db,updatedname,idprovided)
-			 	 	elsif veri_ans == "email" 
-			 	 		puts "What email will you like to update to"
-			 	 		updatedemail = gets.chomp
-			 	 		updateemail(db,updatedemail,idprovided)
-			 	 	elsif veri_ans == "username"
-			 	 		puts "What will be your user name"
-			 	 		updateuser_name = gets.chomp
-			 	 		updateusername(db,updateuser_name,idprovided)
-			 	end
-
+				update(db,userid)
 			else puts "I do not understand you!!!"
 		end
 	end
 end
+
+
+
+
+
+
+
 
 # Ask for user Information
 # USER INTERFACE
@@ -109,7 +126,7 @@ until valid_input == true
 
 		name1.map! do|i|
 		 i.capitalize
-		end
+		end  
 
 		name = name1.join(" ")
 
@@ -127,13 +144,24 @@ until valid_input == true
 		userid = (db.execute("SELECT * FROM users Where name = '#{name}' ")).first['id']
 		# puts userid
 		new_member(db,userid)
-		
 		elsif member == "current"
 		valid_input = true
 		puts "What is your userid"
 		userid = gets.chomp.to_i
 		specific_user(db,userid)
-		puts "Thanks for being a valuable customer"
+		puts "Will you like to update or Delete your account"
+		 resp = gets.chomp
+		 if resp == "update"
+		 	loop do
+			 	update(db,userid)
+			 	specific_user(db,userid)
+			 	puts "Is this update correct Y/N"
+			 	break if gets.chomp.upcase == "Y"
+			end
+		 elsif resp == "delete"
+		 	del_acct(db,userid)
+		 	puts "We appreciate your business"
+		 end
 		else puts "Just confirming are you a new or current member. TYPE new or current"
 	end
 end
